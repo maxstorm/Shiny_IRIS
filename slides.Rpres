@@ -1,0 +1,50 @@
+Course Project: Shiny Application and Reproducible Pitch
+========================================================
+author: maxstorm
+date: 06 January 2017
+
+
+Overview
+========================================================
+
+The app is avalilable at:
+https://maxstorm.shinyapps.io/IRIS_Shiny_Project/
+
+Source code for ui.R and server.R files are available on the GitHub repo:
+https://github.com/maxstorm/Shiny_IRIS
+
+
+Web Application 
+========================================================
+
+The simple shiny application shows you how the IRIS data is clustered by choosing
+a different number of clusters (k)
+
+Just select the x and y axis and the number of clusters
+
+
+IRIS Dataset
+========================================================
+
+IRIS summary
+
+```{r, echo=FALSE}
+summary(iris)
+```
+
+
+Plot
+========================================================
+
+Here comes the standard 3 means clustering of IRIS data
+
+```{r, echo=FALSE}
+data(iris)
+selectedData <- iris[, 1:2]
+cluster <- kmeans(selectedData, 3)
+plot(selectedData, 
+     col =  cluster$cluster,
+     pch = 20, cex = 3, main = "3 means clustering of IRIS data")
+points(cluster$centers, pch = 4, cex = 4, lwd = 4)
+```
+
